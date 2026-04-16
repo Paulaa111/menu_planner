@@ -48,6 +48,7 @@ def export_to_csv(selections, dietary_notes, guest_count, couple_name, menu_data
                 "Suma (zł)": dish.get("price_per_person", 0) * guest_count if dish else "-",
                 "Alergeny": ", ".join(dish.get("allergens", [])) if dish else "",
             })
+
     for upsell_name in selections.get("_upsells", []):
         upsell = next((u for u in upsells if u["name"] == upsell_name), None)
         rows.append({
@@ -59,8 +60,20 @@ def export_to_csv(selections, dietary_notes, guest_count, couple_name, menu_data
             "Suma (zł)": upsell.get("price", "-") if upsell else "-",
             "Alergeny": "",
         })
-    # Dietary notes
-    rows.append({"Para": couple_name, "Kategoria": "DIETY", "Danie": f"Wegetarianie: {dietary_notes.get('vegetarian',0)}, Weganie: {dietary_notes.get('vegan',0)}, Bezglutenowi: {dietary_notes.get('gluten_free',0)}", "Porcje": "", "Cena/os (zł)": "", "Suma (zł)": "", "Alergeny": dietary_notes.get("other", "")})
+
+    rows.append({
+        "Para": couple_name,
+        "Kategoria": "DIETY",
+        "Danie": (
+            f"Wegetarianie: {dietary_notes.get('vegetarian', 0)}, "
+            f"Weganie: {dietary_notes.get('vegan', 0)}, "
+            f"Bezglutenowi: {dietary_notes.get('gluten_free', 0)}"
+        ),
+        "Porcje": "",
+        "Cena/os (zł)": "",
+        "Suma (zł)": "",
+        "Alergeny": dietary_notes.get("other", ""),
+    })
 
     df = pd.DataFrame(rows)
     output = io.StringIO()
