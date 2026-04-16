@@ -1,76 +1,68 @@
-"""
-utils.py – Helper functions for summary calculation and data export.
-"""
-import csv
+import pandas as pd
 import io
-from datetime import datetime
+from menu_data import MENU_DATA, UPSELLS
 
 
-def calculate_summary(selections: dict, guest_count: int, menu_data: dict, upsells: list) -> dict:
-    """Return a summary dict with total_dishes count and per-category breakdown."""
+def calculate_summary(selections, guest_count, menu_data, upsells):
     breakdown = {}
-    total = 0
+    total_dishes = 0
+    estimated_cost = 0
 
-    for category in menu_data:
+    for category, items in menu_data.items():
         chosen = selections.get(category, [])
         breakdown[category] = chosen
-        total += len(chosen)
+        total_dishes += len(chosen)
+        for dish_name in chosen:
+            dish = next((d for d in items["dishes"] if d["name"] == dish_name), None)
+            if dish and "price_per_person" in dish:
+                estimated_cost += dish["price_per_person"] * guest_count
+
+    # Add upsells cost
+    chosen_upsells = selections.get("_upsells", [])
+    for upsell_name in chosen_upsells:
+        upsell = next((u for u in upsells if u["name"] == upsell_name), None)
+        if upsell and "price" in upsell:
+            estimated_cost += upsell["price"]
 
     return {
-        "total_dishes": total,
         "breakdown": breakdown,
-        "guest_count": guest_count,
+        "total_dishes": total_dishes,
+        "estimated_cost": estimated_cost,
     }
 
 
-def export_to_csv(
-    selections: dict,
-    dietary_notes: dict,
-    guest_count: int,
-    couple_name: str,
-    menu_data: dict,
-    upsells: list,
-) -> str:
-    """Generate a CSV string ready for download."""
+def export_to_csv(selections, dietary_notes, guest_count, couple_name, menu_data, upsells):
+    rows = []
+    for category, dishes in selections.items():
+        if category == "_upsells":
+            continue
+        for dish_name in dishes:
+            items = menu_data.get(category, {})
+            dish = next((d for d in items.get("dishes", []) if d["name"] == dish_name), None)
+            rows.append({
+                "Para": couple_name,
+                "Kategoria": category,
+                "Danie": dish_name,
+                "Porcje": guest_count,
+                "Cena/os (zł)": dish.get("price_per_person", "-") if dish else "-",
+                "Suma (zł)": dish.get("price_per_person", 0) * guest_count if dish else "-",
+                "Alergeny": ", ".join(dish.get("allergens", [])) if dish else "",
+            })
+    for upsell_name in selections.get("_upsells", []):
+        upsell = next((u for u in upsells if u["name"] == upsell_name), None)
+        rows.append({
+            "Para": couple_name,
+            "Kategoria": "Dodatek Premium",
+            "Danie": upsell_name,
+            "Porcje": "-",
+            "Cena/os (zł)": "-",
+            "Suma (zł)": upsell.get("price", "-") if upsell else "-",
+            "Alergeny": "",
+        })
+    # Dietary notes
+    rows.append({"Para": couple_name, "Kategoria": "DIETY", "Danie": f"Wegetarianie: {dietary_notes.get('vegetarian',0)}, Weganie: {dietary_notes.get('vegan',0)}, Bezglutenowi: {dietary_notes.get('gluten_free',0)}", "Porcje": "", "Cena/os (zł)": "", "Suma (zł)": "", "Alergeny": dietary_notes.get("other", "")})
+
+    df = pd.DataFrame(rows)
     output = io.StringIO()
-    writer = csv.writer(output)
-
-    # Header block
-    writer.writerow(["KONFIGURATOR MENU WESELNEGO"])
-    writer.writerow(["Para Młoda:", couple_name or "—"])
-    writer.writerow(["Liczba gości:", guest_count])
-    writer.writerow(["Data eksportu:", datetime.now().strftime("%Y-%m-%d %H:%M")])
-    writer.writerow([])
-
-    # Selected dishes
-    writer.writerow(["KATEGORIA", "DANIE", "PORCJE", "ALERGENY"])
-    for category, items in menu_data.items():
-        chosen = selections.get(category, [])
-        for dish_name in chosen:
-            dish = next((d for d in items["dishes"] if d["name"] == dish_name), None)
-            allergens = ", ".join(dish.get("allergens", [])) if dish else ""
-            writer.writerow([category, dish_name, guest_count, allergens])
-
-    writer.writerow([])
-
-    # Dietary
-    writer.writerow(["ZESTAWIENIE DIET"])
-    writer.writerow(["Dieta", "Liczba gości"])
-    writer.writerow(["Wegetariańska", dietary_notes.get("vegetarian", 0)])
-    writer.writerow(["Wegańska", dietary_notes.get("vegan", 0)])
-    writer.writerow(["Bezglutenowa", dietary_notes.get("gluten_free", 0)])
-    if dietary_notes.get("other"):
-        writer.writerow(["Inne uwagi", dietary_notes["other"]])
-
-    writer.writerow([])
-
-    # Upsells
-    chosen_upsells = selections.get("_upsells", [])
-    if chosen_upsells:
-        writer.writerow(["DODATKI PREMIUM"])
-        for u in chosen_upsells:
-            upsell = next((x for x in upsells if x["name"] == u), None)
-            price = upsell.get("price", "—") if upsell else "—"
-            writer.writerow([u, f"od {price} zł"])
-
+    df.to_csv(output, index=False, encoding="utf-8-sig")
     return output.getvalue()
