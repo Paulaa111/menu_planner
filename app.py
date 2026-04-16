@@ -27,53 +27,67 @@ st.markdown("""
         font-family: 'DM Serif Display', serif !important;
         font-weight: 400 !important;
     }
+
+    /* ── Paleta ──────────────────────────────────────────────────────────────
+       Granat:       #1B2A4A
+       Granat jasny: #2C3F66
+       Krem:         #FAF7F2
+       Krem ciemny:  #F0EBE3
+       Akcent złoty: #C4975A
+       Akcent różany: #C4826A
+       Tekst ciemny: #1B2A4A
+       Tekst medium: #5A6A7A
+       Tekst jasny:  #8A9AB0
+    ───────────────────────────────────────────────────────────────────────── */
+
     .stApp {
-        background: #F7F5F2;
+        background: #FAF7F2;
     }
 
     /* Sidebar */
     [data-testid="stSidebar"] {
-        background: #1C1917 !important;
+        background: #1B2A4A !important;
     }
     [data-testid="stSidebar"] * {
-        color: #E8E0D5 !important;
+        color: #E8E4DC !important;
     }
     [data-testid="stSidebar"] .stNumberInput input,
     [data-testid="stSidebar"] .stTextInput input,
     [data-testid="stSidebar"] .stTextArea textarea {
-        background: #2C2824 !important;
-        border: 1px solid #3D3730 !important;
-        color: #E8E0D5 !important;
-        border-radius: 4px !important;
+        background: #243660 !important;
+        border: 1px solid #3A5080 !important;
+        color: #E8E4DC !important;
+        border-radius: 10px !important;
     }
     [data-testid="stSidebar"] label {
-        color: #9C9087 !important;
+        color: #8A9AB0 !important;
         font-size: 0.75rem !important;
         letter-spacing: 0.08em !important;
         text-transform: uppercase !important;
     }
     [data-testid="stSidebar"] hr {
-        border-color: #2C2824 !important;
+        border-color: #243660 !important;
     }
 
     /* Category cards */
     .cat-card {
         background: #FFFFFF;
-        border-radius: 2px;
+        border-radius: 14px;
         padding: 2rem 2rem 1.5rem;
         margin-bottom: 1.5rem;
-        border-top: 2px solid #1C1917;
+        border-top: 3px solid #C4975A;
+        box-shadow: 0 2px 12px rgba(27,42,74,0.06);
     }
     .cat-title {
         font-family: 'DM Serif Display', serif;
         font-size: 1.5rem;
-        color: #1C1917;
+        color: #1B2A4A;
         margin: 0 0 0.25rem 0;
         letter-spacing: -0.01em;
     }
     .cat-desc {
         font-size: 0.8rem;
-        color: #9C9087;
+        color: #5A6A7A;
         letter-spacing: 0.05em;
         text-transform: uppercase;
         margin-bottom: 1.25rem;
@@ -81,48 +95,50 @@ st.markdown("""
 
     /* Dish cards */
     .dish-detail {
-        border-left: 2px solid #E8E0D5;
-        padding: 0.5rem 0.75rem;
+        border-left: 3px solid #C4975A;
+        background: #FAF7F2;
+        border-radius: 0 10px 10px 0;
+        padding: 0.6rem 0.9rem;
         margin: 0.5rem 0;
     }
     .dish-name {
         font-weight: 500;
         font-size: 0.9rem;
-        color: #1C1917;
+        color: #1B2A4A;
     }
     .dish-desc {
         font-size: 0.78rem;
-        color: #9C9087;
+        color: #5A6A7A;
         margin-top: 2px;
     }
     .dish-price {
         font-size: 0.78rem;
-        color: #6B6059;
+        color: #C4975A;
         font-weight: 500;
         margin-top: 3px;
     }
     .allergen-tag {
         display: inline-block;
-        background: #F7F5F2;
-        border: 1px solid #E8E0D5;
-        border-radius: 2px;
-        padding: 1px 6px;
+        background: #F0EBE3;
+        border: 1px solid #DDD5C8;
+        border-radius: 20px;
+        padding: 1px 8px;
         font-size: 0.68rem;
-        color: #9C9087;
+        color: #5A6A7A;
         margin-right: 3px;
         margin-top: 3px;
     }
 
     /* AI bubble */
     .ai-bubble {
-        background: #FEFCFA;
-        border: 1px solid #E8E0D5;
-        border-left: 3px solid #1C1917;
-        border-radius: 2px;
+        background: #EEF1F7;
+        border: 1px solid #C8D4E8;
+        border-left: 3px solid #1B2A4A;
+        border-radius: 0 12px 12px 0;
         padding: 0.75rem 1rem;
         margin: 0.75rem 0;
         font-size: 0.85rem;
-        color: #4A4039;
+        color: #1B2A4A;
         font-style: italic;
         line-height: 1.6;
     }
@@ -130,39 +146,42 @@ st.markdown("""
     /* Upsell cards */
     .upsell-card {
         background: #FFFFFF;
-        border-radius: 2px;
+        border-radius: 12px;
         padding: 1rem;
-        border-top: 2px solid #C9B99A;
+        border-top: 2px solid #C4975A;
         margin-bottom: 0.5rem;
+        box-shadow: 0 2px 8px rgba(27,42,74,0.05);
     }
     .upsell-name {
         font-weight: 500;
         font-size: 0.9rem;
-        color: #1C1917;
+        color: #1B2A4A;
     }
     .upsell-price {
         font-size: 0.8rem;
-        color: #6B6059;
+        color: #C4975A;
         margin-top: 4px;
+        font-weight: 500;
     }
 
     /* Summary */
     .summary-metric {
         background: #FFFFFF;
-        border-radius: 2px;
+        border-radius: 14px;
         padding: 1.25rem;
-        border-top: 2px solid #1C1917;
+        border-top: 3px solid #1B2A4A;
         text-align: center;
+        box-shadow: 0 2px 8px rgba(27,42,74,0.06);
     }
     .metric-value {
         font-family: 'DM Serif Display', serif;
         font-size: 2rem;
-        color: #1C1917;
+        color: #1B2A4A;
         line-height: 1;
     }
     .metric-label {
         font-size: 0.72rem;
-        color: #9C9087;
+        color: #5A6A7A;
         text-transform: uppercase;
         letter-spacing: 0.08em;
         margin-top: 0.5rem;
@@ -170,30 +189,61 @@ st.markdown("""
 
     /* Cost highlight */
     .cost-box {
-        background: #1C1917;
-        color: #F7F5F2;
-        border-radius: 2px;
+        background: #1B2A4A;
+        color: #FAF7F2;
+        border-radius: 14px;
         padding: 1.5rem 2rem;
         margin: 1rem 0;
     }
     .cost-label {
         font-size: 0.72rem;
-        color: #9C9087;
+        color: #8A9AB0;
         text-transform: uppercase;
         letter-spacing: 0.1em;
     }
     .cost-value {
         font-family: 'DM Serif Display', serif;
         font-size: 2.5rem;
-        color: #F7F5F2;
+        color: #FAF7F2;
         line-height: 1.1;
         margin-top: 0.25rem;
+    }
+
+    /* Summary preview box (inline in menu tab) */
+    .summary-preview {
+        background: #1B2A4A;
+        border-radius: 14px;
+        padding: 1.4rem 2rem;
+        margin: 1.5rem 0 0.5rem 0;
+        color: #FAF7F2;
+    }
+    .summary-preview-title {
+        font-family: 'DM Serif Display', serif;
+        font-size: 1.25rem;
+        color: #FAF7F2;
+        margin-bottom: 0.75rem;
+    }
+    .summary-preview-row {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #2C3F66;
+        padding: 0.3rem 0;
+        font-size: 0.82rem;
+        color: #C8D4E8;
+    }
+    .summary-preview-row:last-child { border-bottom: none; }
+    .summary-preview-total {
+        font-size: 1.1rem;
+        color: #C4975A;
+        font-weight: 500;
+        margin-top: 0.75rem;
+        font-family: 'DM Serif Display', serif;
     }
 
     /* Tabs */
     .stTabs [data-baseweb="tab-list"] {
         background: transparent;
-        border-bottom: 1px solid #E8E0D5;
+        border-bottom: 1px solid #DDD5C8;
         gap: 0;
     }
     .stTabs [data-baseweb="tab"] {
@@ -201,21 +251,21 @@ st.markdown("""
         font-size: 0.75rem !important;
         letter-spacing: 0.08em !important;
         text-transform: uppercase !important;
-        color: #9C9087 !important;
+        color: #8A9AB0 !important;
         padding: 0.75rem 1.5rem !important;
         background: transparent !important;
     }
     .stTabs [aria-selected="true"] {
-        color: #1C1917 !important;
-        border-bottom: 2px solid #1C1917 !important;
+        color: #1B2A4A !important;
+        border-bottom: 2px solid #C4975A !important;
     }
 
     /* Buttons */
     .stButton>button {
-        background: #1C1917 !important;
-        color: #F7F5F2 !important;
+        background: #1B2A4A !important;
+        color: #FAF7F2 !important;
         border: none !important;
-        border-radius: 2px !important;
+        border-radius: 12px !important;
         font-family: 'DM Sans', sans-serif !important;
         font-size: 0.75rem !important;
         letter-spacing: 0.08em !important;
@@ -225,42 +275,48 @@ st.markdown("""
         transition: opacity 0.15s !important;
     }
     .stButton>button:hover {
-        opacity: 0.8 !important;
+        opacity: 0.85 !important;
         transform: none !important;
     }
 
     /* Multiselect tags */
     [data-baseweb="tag"] {
-        background: #1C1917 !important;
-        border-radius: 2px !important;
+        background: #1B2A4A !important;
+        border-radius: 20px !important;
     }
     [data-baseweb="tag"] span {
-        color: #F7F5F2 !important;
+        color: #FAF7F2 !important;
         font-size: 0.78rem !important;
+    }
+
+    /* Multiselect dropdown */
+    [data-baseweb="select"] {
+        border-radius: 10px !important;
     }
 
     /* Chat */
     [data-testid="stChatMessage"] {
         background: #FFFFFF !important;
-        border-radius: 2px !important;
+        border-radius: 12px !important;
         border: none !important;
     }
 
     /* Download buttons */
     .stDownloadButton>button {
         background: transparent !important;
-        color: #1C1917 !important;
-        border: 1px solid #1C1917 !important;
+        color: #1B2A4A !important;
+        border: 1.5px solid #1B2A4A !important;
         font-size: 0.72rem !important;
+        border-radius: 12px !important;
     }
     .stDownloadButton>button:hover {
-        background: #1C1917 !important;
-        color: #F7F5F2 !important;
+        background: #1B2A4A !important;
+        color: #FAF7F2 !important;
     }
 
     /* Divider */
     hr {
-        border-color: #E8E0D5 !important;
+        border-color: #DDD5C8 !important;
         margin: 1.5rem 0 !important;
     }
 
@@ -269,10 +325,44 @@ st.markdown("""
         font-size: 0.68rem;
         letter-spacing: 0.12em;
         text-transform: uppercase;
-        color: #9C9087;
+        color: #8A9AB0;
         margin-bottom: 1.25rem;
         padding-bottom: 0.5rem;
-        border-bottom: 1px solid #E8E0D5;
+        border-bottom: 1px solid #DDD5C8;
+    }
+
+    /* Wedding intro text */
+    .wedding-intro {
+        background: #FFFFFF;
+        border-radius: 14px;
+        padding: 1.5rem 2rem;
+        margin-bottom: 2rem;
+        border-left: 4px solid #C4975A;
+        box-shadow: 0 2px 10px rgba(27,42,74,0.05);
+    }
+    .wedding-intro p {
+        color: #1B2A4A !important;
+        font-size: 0.88rem;
+        line-height: 1.7;
+        margin: 0;
+    }
+    .wedding-intro .intro-title {
+        font-family: 'DM Serif Display', serif;
+        font-size: 1.1rem;
+        color: #1B2A4A !important;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Checkbox label color fix */
+    .stCheckbox label {
+        color: #1B2A4A !important;
+        font-size: 0.88rem !important;
+    }
+
+    /* Dataframe */
+    [data-testid="stDataFrame"] {
+        border-radius: 10px !important;
+        overflow: hidden;
     }
 
     /* Hide streamlit branding */
@@ -289,6 +379,7 @@ defaults = {
     "chat_history": [],
     "couple_name": "",
     "dietary_notes": {},
+    "show_summary_preview": False,
 }
 for k, v in defaults.items():
     if k not in st.session_state:
@@ -339,19 +430,27 @@ def ai_chat(user_msg: str) -> str:
 with st.sidebar:
     st.markdown("<br>", unsafe_allow_html=True)
     st.markdown(
-        "<p style='font-family:DM Serif Display,serif; font-size:1.4rem; color:#E8E0D5; margin:0;'>Konfiguracja</p>",
+        "<p style='font-family:DM Serif Display,serif; font-size:1.4rem; color:#E8E4DC; margin:0;'>Konfiguracja</p>",
         unsafe_allow_html=True,
     )
-    st.markdown("<p style='font-size:0.7rem; color:#6B6059; letter-spacing:0.1em; text-transform:uppercase; margin-top:2px;'>Dane podstawowe</p>", unsafe_allow_html=True)
-    st.markdown("<hr style='border-color:#2C2824; margin:0.75rem 0;'>", unsafe_allow_html=True)
+    st.markdown(
+        "<p style='font-size:0.7rem; color:#8A9AB0; letter-spacing:0.1em; text-transform:uppercase; margin-top:2px;'>Dane podstawowe</p>",
+        unsafe_allow_html=True,
+    )
+    st.markdown("<hr style='border-color:#243660; margin:0.75rem 0;'>", unsafe_allow_html=True)
 
     st.session_state.couple_name = st.text_input("Para Młoda", placeholder="Anna & Michał")
     wedding_date = st.date_input("Data uroczystości", min_value=datetime.today())
-    st.session_state.guest_count = st.number_input("Liczba gości", min_value=10, max_value=1000, value=100, step=5)
+    st.session_state.guest_count = st.number_input(
+        "Liczba gości", min_value=10, max_value=1000, value=100, step=5
+    )
 
     st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown("<p style='font-size:0.7rem; color:#6B6059; letter-spacing:0.1em; text-transform:uppercase;'>Diety specjalne</p>", unsafe_allow_html=True)
-    st.markdown("<hr style='border-color:#2C2824; margin:0.5rem 0;'>", unsafe_allow_html=True)
+    st.markdown(
+        "<p style='font-size:0.7rem; color:#8A9AB0; letter-spacing:0.1em; text-transform:uppercase;'>Diety specjalne</p>",
+        unsafe_allow_html=True,
+    )
+    st.markdown("<hr style='border-color:#243660; margin:0.5rem 0;'>", unsafe_allow_html=True)
 
     vege = st.number_input("Wegetarianie", min_value=0, max_value=st.session_state.guest_count, value=0)
     vegan = st.number_input("Weganie", min_value=0, max_value=st.session_state.guest_count, value=0)
@@ -366,10 +465,16 @@ with st.sidebar:
     }
 
     st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown("<hr style='border-color:#2C2824; margin:0.5rem 0;'>", unsafe_allow_html=True)
+    st.markdown("<hr style='border-color:#243660; margin:0.5rem 0;'>", unsafe_allow_html=True)
     total_selected = sum(len(v) for v in st.session_state.selections.values() if isinstance(v, list))
-    st.markdown(f"<p style='font-size:0.72rem; color:#6B6059;'>Wybrano dań: <strong style='color:#E8E0D5;'>{total_selected}</strong></p>", unsafe_allow_html=True)
-    st.markdown(f"<p style='font-size:0.72rem; color:#6B6059;'>Liczba gości: <strong style='color:#E8E0D5;'>{st.session_state.guest_count}</strong></p>", unsafe_allow_html=True)
+    st.markdown(
+        f"<p style='font-size:0.72rem; color:#8A9AB0;'>Wybrano dań: <strong style='color:#E8E4DC;'>{total_selected}</strong></p>",
+        unsafe_allow_html=True,
+    )
+    st.markdown(
+        f"<p style='font-size:0.72rem; color:#8A9AB0;'>Liczba gości: <strong style='color:#E8E4DC;'>{st.session_state.guest_count}</strong></p>",
+        unsafe_allow_html=True,
+    )
 
 
 # ── HEADER ────────────────────────────────────────────────────────────────────
@@ -379,11 +484,23 @@ st.markdown("<br>", unsafe_allow_html=True)
 col_h1, col_h2 = st.columns([2, 1])
 with col_h1:
     if couple:
-        st.markdown(f"<p style='font-size:0.72rem; color:#9C9087; letter-spacing:0.12em; text-transform:uppercase; margin:0;'>Konfiguracja menu</p>", unsafe_allow_html=True)
-        st.markdown(f"<h1 style='font-family:DM Serif Display,serif; font-size:2.8rem; color:#1C1917; margin:0; line-height:1.1;'>{couple}</h1>", unsafe_allow_html=True)
+        st.markdown(
+            f"<p style='font-size:0.72rem; color:#8A9AB0; letter-spacing:0.12em; text-transform:uppercase; margin:0;'>Konfiguracja menu</p>",
+            unsafe_allow_html=True,
+        )
+        st.markdown(
+            f"<h1 style='font-family:DM Serif Display,serif; font-size:2.8rem; color:#1B2A4A; margin:0; line-height:1.1;'>{couple}</h1>",
+            unsafe_allow_html=True,
+        )
     else:
-        st.markdown(f"<p style='font-size:0.72rem; color:#9C9087; letter-spacing:0.12em; text-transform:uppercase; margin:0;'>Konfigurator</p>", unsafe_allow_html=True)
-        st.markdown(f"<h1 style='font-family:DM Serif Display,serif; font-size:2.8rem; color:#1C1917; margin:0; line-height:1.1;'>Menu Weselne</h1>", unsafe_allow_html=True)
+        st.markdown(
+            f"<p style='font-size:0.72rem; color:#8A9AB0; letter-spacing:0.12em; text-transform:uppercase; margin:0;'>Konfigurator</p>",
+            unsafe_allow_html=True,
+        )
+        st.markdown(
+            f"<h1 style='font-family:DM Serif Display,serif; font-size:2.8rem; color:#1B2A4A; margin:0; line-height:1.1;'>Menu Weselne</h1>",
+            unsafe_allow_html=True,
+        )
 
 st.markdown("<hr>", unsafe_allow_html=True)
 
@@ -395,6 +512,21 @@ tabs = st.tabs(["Menu", "Asystent Smaku", "Podsumowanie"])
 # TAB 1 – MENU
 # ═══════════════════════════════════════════════════════════════════════════════
 with tabs[0]:
+
+    # ── Intro box ─────────────────────────────────────────────────────────────
+    st.markdown("""
+    <div class="wedding-intro">
+        <p class="intro-title">Skomponuj swoje wesele</p>
+        <p>
+            Tworzymy menu weselne z sercem — korzystamy z produktów lokalnych dostawców
+            i sprawdzonych polskich przepisów przekazywanych z pokolenia na pokolenie.
+            Wybierz dania z każdej kategorii, a nasz Asystent Smaku podpowie,
+            co do siebie pasuje. Pamiętaj — każde danie możemy dostosować
+            do wymagań dietetycznych Twoich gości.
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
+
     for category, items in MENU_DATA.items():
         st.markdown(f'<div class="cat-card">', unsafe_allow_html=True)
         st.markdown(f'<p class="cat-title">{category}</p>', unsafe_allow_html=True)
@@ -461,7 +593,7 @@ with tabs[0]:
             st.markdown(
                 f"""<div class="upsell-card">
                     <p class="upsell-name">{upsell['name']}</p>
-                    <p class="dish-desc">{upsell['description']}</p>
+                    <p class="dish-desc" style="color:#5A6A7A;">{upsell['description']}</p>
                     {"<p class='upsell-price'>od " + str(upsell['price']) + " zł</p>" if upsell.get('price') else ""}
                 </div>""",
                 unsafe_allow_html=True,
@@ -471,6 +603,70 @@ with tabs[0]:
 
     st.session_state.selections["_upsells"] = new_upsells
 
+    # ── Przycisk Podsumowania ──────────────────────────────────────────────────
+    total_dishes_now = sum(
+        len(v) for k, v in st.session_state.selections.items()
+        if isinstance(v, list) and k != "_upsells"
+    )
+
+    st.markdown("<hr>", unsafe_allow_html=True)
+
+    if total_dishes_now > 0:
+        col_btn1, col_btn2, col_btn3 = st.columns([1, 2, 1])
+        with col_btn2:
+            if st.button("📋 Podsumuj wybrane menu", use_container_width=True):
+                st.session_state.show_summary_preview = not st.session_state.show_summary_preview
+
+        if st.session_state.show_summary_preview:
+            summary_now = calculate_summary(
+                st.session_state.selections,
+                st.session_state.guest_count,
+                MENU_DATA,
+                UPSELLS,
+            )
+            rows_html = ""
+            for cat, dishes in summary_now["breakdown"].items():
+                if dishes:
+                    for d in dishes:
+                        dish_obj = next(
+                            (di for di in MENU_DATA.get(cat, {}).get("dishes", []) if di["name"] == d), None
+                        )
+                        price_txt = f"{dish_obj['price_per_person']} zł/os." if dish_obj and dish_obj.get("price_per_person") else "—"
+                        rows_html += f"""
+                        <div class="summary-preview-row">
+                            <span><span style="color:#8A9AB0; font-size:0.72rem;">{cat}</span> &nbsp;·&nbsp; {d}</span>
+                            <span style="color:#C4975A;">{price_txt}</span>
+                        </div>"""
+
+            for u_name in st.session_state.selections.get("_upsells", []):
+                u_obj = next((x for x in UPSELLS if x["name"] == u_name), None)
+                price_txt = f"od {u_obj['price']} zł" if u_obj and u_obj.get("price") else "—"
+                rows_html += f"""
+                <div class="summary-preview-row">
+                    <span><span style="color:#8A9AB0; font-size:0.72rem;">Dodatek</span> &nbsp;·&nbsp; {u_name}</span>
+                    <span style="color:#C4975A;">{price_txt}</span>
+                </div>"""
+
+            cost_txt = (
+                f"Szacunkowy koszt: {summary_now['estimated_cost']:,} zł"
+                if summary_now["estimated_cost"] > 0
+                else ""
+            )
+
+            st.markdown(
+                f"""<div class="summary-preview">
+                    <p class="summary-preview-title">Twoje wybory</p>
+                    {rows_html}
+                    {"<p class='summary-preview-total'>" + cost_txt + "</p>" if cost_txt else ""}
+                </div>""",
+                unsafe_allow_html=True,
+            )
+    else:
+        st.markdown(
+            "<p style='text-align:center; color:#8A9AB0; font-size:0.82rem; padding:1rem 0;'>Wybierz przynajmniej jedno danie, aby zobaczyć podsumowanie.</p>",
+            unsafe_allow_html=True,
+        )
+
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # TAB 2 – ASYSTENT
@@ -478,7 +674,7 @@ with tabs[0]:
 with tabs[1]:
     st.markdown('<p class="section-label">Asystent Smaku</p>', unsafe_allow_html=True)
     st.markdown(
-        "<p style='font-size:0.85rem; color:#6B6059; margin-bottom:1.5rem;'>Zapytaj o kompozycje smakowe, porcje, alergie lub sugestie dla szczególnych potrzeb gości.</p>",
+        "<p style='font-size:0.85rem; color:#5A6A7A; margin-bottom:1.5rem;'>Zapytaj o kompozycje smakowe, porcje, alergie lub sugestie dla szczególnych potrzeb gości.</p>",
         unsafe_allow_html=True,
     )
 
@@ -487,7 +683,10 @@ with tabs[1]:
             st.markdown(msg["content"])
 
     st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown('<p style="font-size:0.72rem; color:#9C9087; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.5rem;">Sugerowane pytania</p>', unsafe_allow_html=True)
+    st.markdown(
+        '<p style="font-size:0.72rem; color:#8A9AB0; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.5rem;">Sugerowane pytania</p>',
+        unsafe_allow_html=True,
+    )
 
     qcols = st.columns(3)
     quick_prompts = [
@@ -555,7 +754,7 @@ with tabs[2]:
             f"""<div class="cost-box">
                 <p class="cost-label">Szacunkowy koszt</p>
                 <p class="cost-value">{summary['estimated_cost']:,} zł</p>
-                <p style="font-size:0.72rem; color:#6B6059; margin-top:0.5rem;">przy {st.session_state.guest_count} gościach — ceny orientacyjne, bez napojów</p>
+                <p style="font-size:0.72rem; color:#8A9AB0; margin-top:0.5rem;">przy {st.session_state.guest_count} gościach — ceny orientacyjne, bez napojów</p>
             </div>""",
             unsafe_allow_html=True,
         )
@@ -567,11 +766,19 @@ with tabs[2]:
         st.markdown('<p class="section-label">Wybrane dania</p>', unsafe_allow_html=True)
         for cat, dishes in summary["breakdown"].items():
             if dishes:
-                st.markdown(f"<p style='font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:#9C9087; margin-bottom:0.25rem;'>{cat}</p>", unsafe_allow_html=True)
+                st.markdown(
+                    f"<p style='font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:#8A9AB0; margin-bottom:0.25rem;'>{cat}</p>",
+                    unsafe_allow_html=True,
+                )
                 for d in dishes:
-                    dish_obj = next((di for di in MENU_DATA.get(cat, {}).get("dishes", []) if di["name"] == d), None)
+                    dish_obj = next(
+                        (di for di in MENU_DATA.get(cat, {}).get("dishes", []) if di["name"] == d), None
+                    )
                     price_info = f" — {dish_obj['price_per_person']} zł/os." if dish_obj and dish_obj.get("price_per_person") else ""
-                    st.markdown(f"<p style='font-size:0.85rem; color:#1C1917; margin:0.1rem 0; padding-left:1rem;'>{d}{price_info}</p>", unsafe_allow_html=True)
+                    st.markdown(
+                        f"<p style='font-size:0.85rem; color:#1B2A4A; margin:0.1rem 0; padding-left:1rem;'>{d}{price_info}</p>",
+                        unsafe_allow_html=True,
+                    )
                 st.markdown("<br>", unsafe_allow_html=True)
 
     # Dietary
@@ -585,7 +792,10 @@ with tabs[2]:
     st.dataframe(diet_df, use_container_width=True, hide_index=True)
 
     if st.session_state.dietary_notes.get("other"):
-        st.markdown(f"<p style='font-size:0.82rem; color:#6B6059; font-style:italic;'>Uwagi: {st.session_state.dietary_notes['other']}</p>", unsafe_allow_html=True)
+        st.markdown(
+            f"<p style='font-size:0.82rem; color:#5A6A7A; font-style:italic;'>Uwagi: {st.session_state.dietary_notes['other']}</p>",
+            unsafe_allow_html=True,
+        )
 
     # Premium
     upsells_chosen = st.session_state.selections.get("_upsells", [])
@@ -595,7 +805,10 @@ with tabs[2]:
         for u in upsells_chosen:
             upsell_obj = next((x for x in UPSELLS if x["name"] == u), None)
             price_info = f" — od {upsell_obj['price']} zł" if upsell_obj and upsell_obj.get("price") else ""
-            st.markdown(f"<p style='font-size:0.85rem; color:#1C1917;'>{u}{price_info}</p>", unsafe_allow_html=True)
+            st.markdown(
+                f"<p style='font-size:0.85rem; color:#1B2A4A;'>{u}{price_info}</p>",
+                unsafe_allow_html=True,
+            )
 
     # Export
     st.markdown("<hr>", unsafe_allow_html=True)
