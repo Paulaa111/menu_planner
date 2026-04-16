@@ -1,239 +1,94 @@
-"""
-menu_data.py – Dane menu weselnego.
-Edytuj ten plik, aby dostosować ofertę do konkretnej restauracji.
-"""
-
 MENU_DATA = {
-    "Przystawki & Wiejski Stół": {
-        "icon": "🧀",
-        "description": "Pierwsze wrażenie na przyjęciu – eleganckie i apetyczne",
+    "Przystawki": {
+        "icon": "",
+        "description": "Eleganckie przystawki na rozpoczęcie uczty weselnej",
         "dishes": [
-            {
-                "name": "Deska serów z konfiturami",
-                "description": "Selekcja polskich i europejskich serów z owocowymi konfiturami i orzechami",
-                "allergens": ["mleko", "orzechy"],
-            },
-            {
-                "name": "Śledzie w 3 marynatach",
-                "description": "Klasyczne śledzie w oleju, po kaszubsku i w sosie śmietanowym z jabłkiem",
-                "allergens": ["ryby", "mleko"],
-            },
-            {
-                "name": "Roladki z łososia z twarożkiem",
-                "description": "Wędzone plastry łososia z kremowym twarożkiem ziołowym",
-                "allergens": ["ryby", "mleko"],
-            },
-            {
-                "name": "Bruschetta z pomidorami i bazylią",
-                "description": "Chrupiące grzanki z dojrzałymi pomidorami, czosnkiem i świeżą bazylią",
-                "allergens": ["gluten"],
-            },
-            {
-                "name": "Tartinki z pasztetem domowym",
-                "description": "Mini kanapeczki z pasztetem z dziczyzny i żurawiną",
-                "allergens": ["gluten", "seler"],
-            },
+            {"name": "Wiejski stół staropolski", "description": "Sery, wędliny, kiszonki, chleby wiejskie", "allergens": ["gluten", "laktoza"], "price_per_person": 35},
+            {"name": "Deska serów dojrzewających", "description": "Selekcja serów z winogronami i orzechami", "allergens": ["laktoza", "orzechy"], "price_per_person": 28},
+            {"name": "Śledzie po polsku", "description": "Śledzie w trzech marynatach", "allergens": ["ryby"], "price_per_person": 18},
+            {"name": "Carpaccio z polędwicy", "description": "Cienko krojona polędwica z rukolą i parmezanem", "allergens": ["laktoza"], "price_per_person": 32},
         ],
     },
     "Zupy": {
-        "icon": "🍲",
-        "description": "Rozgrzewające i aromatyczne – serce polskiego przyjęcia weselnego",
+        "icon": "",
+        "description": "Tradycyjne polskie zupy w nowoczesnym wydaniu",
         "dishes": [
-            {
-                "name": "Żurek staropolski z jajkiem i kiełbasą",
-                "description": "Tradycyjny żurek na zakwasie z ugotowanym jajkiem, białą kiełbasą i chrzanem",
-                "allergens": ["gluten", "jaja"],
-            },
-            {
-                "name": "Rosół z kury z makaronem",
-                "description": "Złocisty rosół gotowany 6 godzin, podawany z domowym makaronem i zieleniną",
-                "allergens": ["gluten", "seler"],
-            },
-            {
-                "name": "Barszcz czerwony z uszkami",
-                "description": "Klasyczny barszcz z buraków z malutkimi uszkami z kapustą i grzybami",
-                "allergens": ["gluten"],
-            },
-            {
-                "name": "Krem z dyni z pestkami",
-                "description": "Aksamitny krem z dyni hokkaido z prażonymi pestkami i olejem z pestek dyni",
-                "allergens": [],
-            },
-            {
-                "name": "Chłodnik litewski",
-                "description": "Orzeźwiający różowy chłodnik z buraków, ogórkiem i jajkiem (sezonowo)",
-                "allergens": ["mleko", "jaja"],
-            },
+            {"name": "Żurek staropolski", "description": "Z białą kiełbasą, jajkiem i chrzanem", "allergens": ["gluten", "jajka"], "price_per_person": 22},
+            {"name": "Rosół z kury wiejskiej", "description": "Złocisty bulion z makaronem lane ciasto", "allergens": ["gluten", "jajka"], "price_per_person": 18},
+            {"name": "Barszcz czerwony z uszkami", "description": "Klasyczny barszcz z uszkami z grzybami", "allergens": ["gluten"], "price_per_person": 20},
+            {"name": "Krem z dyni z pestkami", "description": "Aksamitna zupa krem z pestkami dyni", "allergens": [], "price_per_person": 19},
         ],
     },
-    "Dania Główne – Mięso": {
-        "icon": "🥩",
-        "description": "Serce menu weselnego – wybierz 1-2 dania główne",
+    "Dania Główne": {
+        "icon": "",
+        "description": "Serca naszego menu — starannie dobrane mięsa i ryby",
         "dishes": [
-            {
-                "name": "Pierś z kaczki z sosem wiśniowym",
-                "description": "Różowa pierś z kaczki confitowana, z redukcją wiśniową i anyżem",
-                "allergens": ["seler"],
-            },
-            {
-                "name": "Polędwica wołowa medium-rare",
-                "description": "Polędwica wołowa z grilla, podawana z sosem bordelaise i masłem ziołowym",
-                "allergens": ["mleko", "seler"],
-            },
-            {
-                "name": "Kurczak faszerowany ricottą i szpinakiem",
-                "description": "Rolada z piersi kurczaka z nadzieniem z ricotty, szpinaku i suszonych pomidorów",
-                "allergens": ["mleko"],
-            },
-            {
-                "name": "Żeberka wieprzone w miodzie i piwie",
-                "description": "Długo pieczone żeberka wieprzowe w glazurze miodowo-piwnej z jabłkiem",
-                "allergens": ["gluten", "seler"],
-            },
-            {
-                "name": "Pieczeń cielęca z warzywami",
-                "description": "Delikatna pieczeń cielęca duszona z warzywami korzeniowymi i tymiankiem",
-                "allergens": ["seler"],
-            },
+            {"name": "Kaczka w sosie pomarańczowym", "description": "Pieczona kaczka z pomarańczą i rozmarynem", "allergens": [], "price_per_person": 89},
+            {"name": "Polędwica wołowa sous-vide", "description": "Polędwica z sosem truflowym i jus", "allergens": [], "price_per_person": 125},
+            {"name": "Łosoś atlantycki pieczony", "description": "Filet z łososia z cytryną i koperkiem", "allergens": ["ryby"], "price_per_person": 75},
+            {"name": "Kurczak w sosie śmietanowym", "description": "Pierś z kurczaka z grzybami leśnymi", "allergens": ["laktoza"], "price_per_person": 55},
         ],
     },
-    "Dania Główne – Ryby & Wegetariańskie": {
-        "icon": "🐟",
-        "description": "Lżejsze alternatywy i opcje bezmięsne dla Waszych gości",
+    "Dodatki": {
+        "icon": "",
+        "description": "Staranne dodatki dopełniające smak dań głównych",
         "dishes": [
-            {
-                "name": "Łosoś pieczony z cytryną i koperkiem",
-                "description": "Filet z łososia atlantyckiego pieczony w pergaminie z cytryną i świeżym koperkiem",
-                "allergens": ["ryby"],
-            },
-            {
-                "name": "Dorsz w panierce ziołowej",
-                "description": "Filet z dorsza w chrupiącej panierce z ziołami, podawany z remoulade",
-                "allergens": ["ryby", "gluten", "jaja", "mleko"],
-            },
-            {
-                "name": "Risotto z grzybami leśnymi",
-                "description": "Kremowe risotto z mieszanką grzybów leśnych, parmezanem i truflowym olejkiem",
-                "allergens": ["mleko"],
-            },
-            {
-                "name": "Tagine warzywne z ciecierzycą",
-                "description": "Aromatyczna potrawka w stylu marokańskim z warzywami, ciecierzycą i kuskusem (vegan)",
-                "allergens": ["gluten"],
-            },
-            {
-                "name": "Quiche szpinakowy z kozim serem",
-                "description": "Kruche ciasto z nadzieniem szpinakowym, kozim serem i karmelizowaną cebulą",
-                "allergens": ["gluten", "jaja", "mleko"],
-            },
-        ],
-    },
-    "Dodatki & Garnitury": {
-        "icon": "🥔",
-        "description": "Wybierz 2-3 dodatki – pasujące zestawy podpowie Asystent Smaku",
-        "dishes": [
-            {
-                "name": "Kopytka z boczkiem i cebulką",
-                "description": "Domowe kopytka z ziemniaków, podsmażane na maśle z chrupiącym boczkiem",
-                "allergens": ["gluten", "jaja"],
-            },
-            {
-                "name": "Pierogi ruskie",
-                "description": "Ręcznie lepione pierogi z farszem ziemniaczano-twarogowym ze śmietaną",
-                "allergens": ["gluten", "jaja", "mleko"],
-            },
-            {
-                "name": "Kluski śląskie",
-                "description": "Tradycyjne kluski z dziurką, podawane z zasmażaną kapustą",
-                "allergens": ["gluten", "jaja"],
-            },
-            {
-                "name": "Ziemniaki pieczone z rozmarynem",
-                "description": "Złociste ćwiartki ziemniaków pieczone z rozmarynem, czosnkiem i oliwą",
-                "allergens": [],
-            },
-            {
-                "name": "Bukiet warzyw sezonowych",
-                "description": "Gotowane i glazurowane warzywa sezonowe z masłem ziołowym",
-                "allergens": ["mleko"],
-            },
-            {
-                "name": "Sałata z grillowaną brzoskwinią",
-                "description": "Mix sałat z grillowaną brzoskwinią, orzechami włoskimi i vinaigrette balsamicznym",
-                "allergens": ["orzechy"],
-            },
+            {"name": "Kopytka z boczkiem", "description": "Domowe kopytka z chrupiącym boczkiem", "allergens": ["gluten", "jajka"], "price_per_person": 15},
+            {"name": "Pierogi ruskie", "description": "Z serem, ziemniakami i cebulką", "allergens": ["gluten", "laktoza", "jajka"], "price_per_person": 18},
+            {"name": "Kluski śląskie", "description": "Tradycyjne kluski z okrągłym otworem", "allergens": ["gluten", "jajka"], "price_per_person": 14},
+            {"name": "Ziemniaki zapiekane", "description": "Z rozmarynem i czosnkiem", "allergens": [], "price_per_person": 10},
+            {"name": "Warzywa grillowane sezonowe", "description": "Cukinia, papryka, bakłażan z oliwą", "allergens": [], "price_per_person": 12},
         ],
     },
     "Desery": {
-        "icon": "🍰",
-        "description": "Słodkie zakończenie niezapomnianego wieczoru",
+        "icon": "",
+        "description": "Słodkie zakończenie wyjątkowego wieczoru",
         "dishes": [
-            {
-                "name": "Tort weselny (do wyceny)",
-                "description": "Indywidualnie projektowany tort weselny – skontaktuj się z nami po detale",
-                "allergens": ["gluten", "jaja", "mleko"],
-            },
-            {
-                "name": "Makaroniki francuskie",
-                "description": "Kolorowe makaroniki w 4 smakach: wanilia, malina, pistacja, czekolada",
-                "allergens": ["jaja", "orzechy", "mleko"],
-            },
-            {
-                "name": "Sernik nowojorski",
-                "description": "Kremowy sernik na kruchym spodzie z kulisem malinowym",
-                "allergens": ["gluten", "jaja", "mleko"],
-            },
-            {
-                "name": "Tiramisu klasyczne",
-                "description": "Tradycyjne tiramisu z mascarpone, espresso i biszkoptami savoiardi",
-                "allergens": ["gluten", "jaja", "mleko"],
-            },
-            {
-                "name": "Sorbet owocowy (vegan)",
-                "description": "Rzemieślniczy sorbet: mango-marakuja lub truskawka-bazylia",
-                "allergens": [],
-            },
+            {"name": "Tort weselny wielopiętrowy", "description": "Tort na zamówienie wg projektu Pary Młodej", "allergens": ["gluten", "laktoza", "jajka"], "price_per_person": 45},
+            {"name": "Fontanna czekoladowa", "description": "Z owocami i kąskami do maczania", "allergens": ["laktoza"], "price_per_person": 30},
+            {"name": "Lody rzemieślnicze", "description": "Trzy smaki do wyboru z waflami", "allergens": ["laktoza", "gluten"], "price_per_person": 20},
+            {"name": "Sernik na zimno", "description": "Klasyczny sernik z owocami leśnymi", "allergens": ["laktoza", "jajka", "gluten"], "price_per_person": 22},
         ],
     },
 }
 
 UPSELLS = [
     {
-        "icon": "🍫",
-        "name": "Fontanna czekoladowa",
-        "description": "Belgijska czekolada z owocami, piankami i preclem. Atrakcja dla gości!",
-        "price": 800,
+        "icon": "",
+        "name": "Stacja Sushi",
+        "description": "Żywe sushi na specjalnej wyspie — kucharz przygotowuje na oczach gości",
+        "price": 3500,
     },
     {
-        "icon": "🧀",
-        "name": "Wiejski stół przekąskowy",
-        "description": "Bogaty bufet zimnych przekąsek: sery, wędliny, przetwory, pieczywo",
-        "price": 1200,
+        "icon": "",
+        "name": "Bar Ostryg",
+        "description": "Świeże ostrygi z cytryną i winegret — idealne z szampanem",
+        "price": 2800,
     },
     {
-        "icon": "🥂",
-        "name": "Pakiet napojów Premium",
-        "description": "Nieograniczone wino, piwo kraftowe, wody mineralne i soki przez całą noc",
-        "price": 2500,
+        "icon": "",
+        "name": "Stacja Makaronów",
+        "description": "Włoskie makarony gotowane na żywo z wyborem sosów",
+        "price": 1800,
     },
     {
-        "icon": "🍾",
-        "name": "Toast szampański",
-        "description": "Kieliszek Prosecco lub szampana dla każdego gościa na toast",
-        "price": 600,
+        "icon": "",
+        "name": "Candy Bar",
+        "description": "Słodki stół z pralinkami, macarons, owocami w czekoladzie",
+        "price": 2200,
     },
     {
-        "icon": "🍕",
-        "name": "Pizza o północy",
-        "description": "Świeże pizze z pieca opalanego drewnem podawane późno w nocy",
+        "icon": "",
+        "name": "Degustacja Serów",
+        "description": "Selekcja 12 serów europejskich z sommelierem",
+        "price": 1500,
+    },
+    {
+        "icon": "",
+        "name": "Nocna Grochówka",
+        "description": "Tradycyjna grochówka serwowana o północy",
         "price": 900,
-    },
-    {
-        "icon": "☕",
-        "name": "Stacja kawowa Barista",
-        "description": "Profesjonalny barista przygotowujący espresso, cappuccino i latte art",
-        "price": 1100,
     },
 ]
 
-DIET_OPTIONS = ["Standardowa", "Wegetariańska", "Wegańska", "Bezglutenowa", "Bez laktozy", "Inne"]
+DIET_OPTIONS = ["wegetariańskie", "wegańskie", "bezglutenowe", "bezlaktozowe", "halal", "kosher"]
