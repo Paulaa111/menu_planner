@@ -17,11 +17,12 @@ st.set_page_config(
 # ── Custom CSS ────────────────────────────────────────────────────────────────
 st.markdown("""
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap');
 
     html, body, [class*="css"] {
         font-family: 'DM Sans', sans-serif;
         font-weight: 300;
+        color: #1B2A4A;
     }
     h1, h2, h3, .serif {
         font-family: 'DM Serif Display', serif !important;
@@ -29,22 +30,21 @@ st.markdown("""
     }
 
     /* ── Paleta ──────────────────────────────────────────────────────────────
-       Granat:       #1B2A4A
-       Granat jasny: #2C3F66
-       Krem:         #FAF7F2
-       Krem ciemny:  #F0EBE3
-       Akcent złoty: #C4975A
-       Akcent różany: #C4826A
-       Tekst ciemny: #1B2A4A
-       Tekst medium: #5A6A7A
-       Tekst jasny:  #8A9AB0
+       Granat:        #1B2A4A
+       Granat jasny:  #2C3F66
+       Krem:          #FAF7F2
+       Krem ciemny:   #F0EBE3
+       Akcent złoty:  #C4975A
+       Tekst ciemny:  #1B2A4A
+       Tekst medium:  #3D4F6A
+       Tekst jasny:   #6A7D96
     ───────────────────────────────────────────────────────────────────────── */
 
     .stApp {
         background: #FAF7F2;
     }
 
-    /* Sidebar */
+    /* ── Sidebar ─────────────────────────────────────────────────────────── */
     [data-testid="stSidebar"] {
         background: #1B2A4A !important;
     }
@@ -69,36 +69,70 @@ st.markdown("""
         border-color: #243660 !important;
     }
 
-    /* Category cards */
+    /* ── Grupowe nagłówki posiłków ───────────────────────────────────────── */
+    .meal-group-header {
+        background: #1B2A4A;
+        border-radius: 14px 14px 0 0;
+        padding: 1.1rem 2rem 1rem;
+        margin-top: 2.5rem;
+        margin-bottom: 0;
+    }
+    .meal-group-title {
+        font-family: 'DM Serif Display', serif;
+        font-size: 1.6rem;
+        color: #FAF7F2;
+        margin: 0;
+        line-height: 1.2;
+    }
+    .meal-group-subtitle {
+        font-size: 0.7rem;
+        color: #8A9AB0;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-top: 3px;
+    }
+
+    /* ── Karty kategorii ─────────────────────────────────────────────────── */
     .cat-card {
         background: #FFFFFF;
+        border-radius: 0 0 0 0;
+        padding: 1.5rem 2rem 1.25rem;
+        border-left: 3px solid #C4975A;
+        border-bottom: 1px solid #EDE8E0;
+    }
+    .cat-card:last-of-type,
+    .cat-card-last {
+        border-radius: 0 0 14px 14px;
+        border-bottom: none;
+    }
+    .cat-card-standalone {
+        background: #FFFFFF;
         border-radius: 14px;
-        padding: 2rem 2rem 1.5rem;
-        margin-bottom: 1.5rem;
-        border-top: 3px solid #C4975A;
+        padding: 1.5rem 2rem 1.25rem;
+        border-left: 3px solid #C4975A;
+        margin-top: 2.5rem;
+        margin-bottom: 0;
         box-shadow: 0 2px 12px rgba(27,42,74,0.06);
     }
     .cat-title {
         font-family: 'DM Serif Display', serif;
-        font-size: 1.5rem;
+        font-size: 1.15rem;
         color: #1B2A4A;
-        margin: 0 0 0.25rem 0;
-        letter-spacing: -0.01em;
+        margin: 0 0 0.2rem 0;
     }
     .cat-desc {
-        font-size: 0.8rem;
-        color: #5A6A7A;
+        font-size: 0.75rem;
+        color: #6A7D96;
         letter-spacing: 0.05em;
-        text-transform: uppercase;
-        margin-bottom: 1.25rem;
+        margin-bottom: 1rem;
     }
 
-    /* Dish cards */
+    /* ── Kafelki dań ─────────────────────────────────────────────────────── */
     .dish-detail {
         border-left: 3px solid #C4975A;
         background: #FAF7F2;
         border-radius: 0 10px 10px 0;
-        padding: 0.6rem 0.9rem;
+        padding: 0.65rem 0.9rem;
         margin: 0.5rem 0;
     }
     .dish-name {
@@ -108,14 +142,14 @@ st.markdown("""
     }
     .dish-desc {
         font-size: 0.78rem;
-        color: #5A6A7A;
+        color: #3D4F6A;
         margin-top: 2px;
     }
     .dish-price {
-        font-size: 0.78rem;
+        font-size: 0.8rem;
         color: #C4975A;
         font-weight: 500;
-        margin-top: 3px;
+        margin-top: 4px;
     }
     .allergen-tag {
         display: inline-block;
@@ -124,12 +158,12 @@ st.markdown("""
         border-radius: 20px;
         padding: 1px 8px;
         font-size: 0.68rem;
-        color: #5A6A7A;
+        color: #3D4F6A;
         margin-right: 3px;
         margin-top: 3px;
     }
 
-    /* AI bubble */
+    /* ── AI bubble ───────────────────────────────────────────────────────── */
     .ai-bubble {
         background: #EEF1F7;
         border: 1px solid #C8D4E8;
@@ -143,7 +177,7 @@ st.markdown("""
         line-height: 1.6;
     }
 
-    /* Upsell cards */
+    /* ── Upsell karty ────────────────────────────────────────────────────── */
     .upsell-card {
         background: #FFFFFF;
         border-radius: 12px;
@@ -163,8 +197,13 @@ st.markdown("""
         margin-top: 4px;
         font-weight: 500;
     }
+    .upsell-desc {
+        font-size: 0.78rem;
+        color: #3D4F6A;
+        margin-top: 3px;
+    }
 
-    /* Summary */
+    /* ── Metryki podsumowania ────────────────────────────────────────────── */
     .summary-metric {
         background: #FFFFFF;
         border-radius: 14px;
@@ -181,19 +220,19 @@ st.markdown("""
     }
     .metric-label {
         font-size: 0.72rem;
-        color: #5A6A7A;
+        color: #6A7D96;
         text-transform: uppercase;
         letter-spacing: 0.08em;
         margin-top: 0.5rem;
     }
 
-    /* Cost highlight */
+    /* ── Pole kosztów ────────────────────────────────────────────────────── */
     .cost-box {
         background: #1B2A4A;
         color: #FAF7F2;
         border-radius: 14px;
-        padding: 1.5rem 2rem;
-        margin: 1rem 0;
+        padding: 1.75rem 2rem;
+        margin: 1.25rem 0;
     }
     .cost-label {
         font-size: 0.72rem;
@@ -203,13 +242,18 @@ st.markdown("""
     }
     .cost-value {
         font-family: 'DM Serif Display', serif;
-        font-size: 2.5rem;
+        font-size: 3rem;
         color: #FAF7F2;
         line-height: 1.1;
         margin-top: 0.25rem;
     }
+    .cost-note {
+        font-size: 0.78rem;
+        color: #8A9AB0;
+        margin-top: 0.5rem;
+    }
 
-    /* Summary preview box (inline in menu tab) */
+    /* ── Podgląd podsumowania ────────────────────────────────────────────── */
     .summary-preview {
         background: #1B2A4A;
         border-radius: 14px;
@@ -227,20 +271,20 @@ st.markdown("""
         display: flex;
         justify-content: space-between;
         border-bottom: 1px solid #2C3F66;
-        padding: 0.3rem 0;
-        font-size: 0.82rem;
+        padding: 0.35rem 0;
+        font-size: 0.84rem;
         color: #C8D4E8;
     }
     .summary-preview-row:last-child { border-bottom: none; }
     .summary-preview-total {
-        font-size: 1.1rem;
+        font-size: 1.35rem;
         color: #C4975A;
         font-weight: 500;
-        margin-top: 0.75rem;
+        margin-top: 0.9rem;
         font-family: 'DM Serif Display', serif;
     }
 
-    /* Tabs */
+    /* ── Taby ────────────────────────────────────────────────────────────── */
     .stTabs [data-baseweb="tab-list"] {
         background: transparent;
         border-bottom: 1px solid #DDD5C8;
@@ -251,7 +295,7 @@ st.markdown("""
         font-size: 0.75rem !important;
         letter-spacing: 0.08em !important;
         text-transform: uppercase !important;
-        color: #8A9AB0 !important;
+        color: #6A7D96 !important;
         padding: 0.75rem 1.5rem !important;
         background: transparent !important;
     }
@@ -260,7 +304,7 @@ st.markdown("""
         border-bottom: 2px solid #C4975A !important;
     }
 
-    /* Buttons */
+    /* ── Przyciski ───────────────────────────────────────────────────────── */
     .stButton>button {
         background: #1B2A4A !important;
         color: #FAF7F2 !important;
@@ -276,10 +320,9 @@ st.markdown("""
     }
     .stButton>button:hover {
         opacity: 0.85 !important;
-        transform: none !important;
     }
 
-    /* Multiselect tags */
+    /* ── Multiselect ─────────────────────────────────────────────────────── */
     [data-baseweb="tag"] {
         background: #1B2A4A !important;
         border-radius: 20px !important;
@@ -288,20 +331,18 @@ st.markdown("""
         color: #FAF7F2 !important;
         font-size: 0.78rem !important;
     }
-
-    /* Multiselect dropdown */
     [data-baseweb="select"] {
         border-radius: 10px !important;
     }
 
-    /* Chat */
+    /* ── Chat ────────────────────────────────────────────────────────────── */
     [data-testid="stChatMessage"] {
         background: #FFFFFF !important;
         border-radius: 12px !important;
         border: none !important;
     }
 
-    /* Download buttons */
+    /* ── Przyciski pobierania ────────────────────────────────────────────── */
     .stDownloadButton>button {
         background: transparent !important;
         color: #1B2A4A !important;
@@ -314,24 +355,24 @@ st.markdown("""
         color: #FAF7F2 !important;
     }
 
-    /* Divider */
+    /* ── Divider ─────────────────────────────────────────────────────────── */
     hr {
         border-color: #DDD5C8 !important;
         margin: 1.5rem 0 !important;
     }
 
-    /* Section label */
+    /* ── Etykieta sekcji ─────────────────────────────────────────────────── */
     .section-label {
         font-size: 0.68rem;
         letter-spacing: 0.12em;
         text-transform: uppercase;
-        color: #8A9AB0;
+        color: #6A7D96;
         margin-bottom: 1.25rem;
         padding-bottom: 0.5rem;
         border-bottom: 1px solid #DDD5C8;
     }
 
-    /* Wedding intro text */
+    /* ── Intro box ───────────────────────────────────────────────────────── */
     .wedding-intro {
         background: #FFFFFF;
         border-radius: 14px;
@@ -353,22 +394,35 @@ st.markdown("""
         margin-bottom: 0.5rem;
     }
 
-    /* Checkbox label color fix */
+    /* ── Checkbox ────────────────────────────────────────────────────────── */
     .stCheckbox label {
         color: #1B2A4A !important;
         font-size: 0.88rem !important;
     }
 
-    /* Dataframe */
+    /* ── Dataframe ───────────────────────────────────────────────────────── */
     [data-testid="stDataFrame"] {
         border-radius: 10px !important;
         overflow: hidden;
     }
 
-    /* Hide streamlit branding */
+    /* ── Tekst na jasnym tle ─────────────────────────────────────────────── */
+    p, span, div, label {
+        color: #1B2A4A;
+    }
+
+    /* ── Ukryj branding ──────────────────────────────────────────────────── */
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     header {visibility: hidden;}
+
+    /* ── Usuń domyślne marginesy Streamlit nad widgetami ─────────────────── */
+    .block-container {
+        padding-top: 2rem !important;
+    }
+    div[data-testid="stVerticalBlock"] > div[style*="flex-direction: column"] > div[data-testid="stVerticalBlock"] {
+        gap: 0 !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -426,6 +480,31 @@ def ai_chat(user_msg: str) -> str:
         return "Przepraszam, wystąpił chwilowy problem. Spróbuj ponownie za chwilę."
 
 
+# ── Pomocnicze: grupy posiłków ────────────────────────────────────────────────
+# Kategorie pogrupowane wg posiłku
+MEAL_GROUPS = {
+    "Przystawki":                ["Przystawki"],
+    "Obiad I":                   ["Obiad I – Zupa", "Obiad I – Danie Główne", "Obiad I – Dodatek", "Obiad I – Sałatka"],
+    "Obiad II":                  ["Obiad II – Danie Główne", "Obiad II – Dodatek", "Obiad II – Sałatka"],
+    "Kolacja":                   ["Kolacja – Danie Główne", "Kolacja – Dodatek", "Kolacja – Sałatka"],
+    "Barszcze & Przekąski Nocne":["Barszcze & Przekąski Nocne"],
+    "Zimna Płyta":               ["Zimna Płyta"],
+    "Desery":                    ["Desery"],
+}
+
+# Etykieta podkategorii (część po " – ")
+def sub_label(cat: str) -> str:
+    return cat.split(" – ")[-1] if " – " in cat else cat
+
+# Czy kategoria jest pierwszą w grupie?
+def is_first_in_group(cat: str, group_cats: list) -> bool:
+    return group_cats[0] == cat
+
+# Czy kategoria jest ostatnią w grupie?
+def is_last_in_group(cat: str, group_cats: list) -> bool:
+    return group_cats[-1] == cat
+
+
 # ── SIDEBAR ───────────────────────────────────────────────────────────────────
 with st.sidebar:
     st.markdown("<br>", unsafe_allow_html=True)
@@ -452,9 +531,9 @@ with st.sidebar:
     )
     st.markdown("<hr style='border-color:#243660; margin:0.5rem 0;'>", unsafe_allow_html=True)
 
-    vege = st.number_input("Wegetarianie", min_value=0, max_value=st.session_state.guest_count, value=0)
-    vegan = st.number_input("Weganie", min_value=0, max_value=st.session_state.guest_count, value=0)
-    gluten_free = st.number_input("Bezglutenowi", min_value=0, max_value=st.session_state.guest_count, value=0)
+    vege       = st.number_input("Wegetarianie",  min_value=0, max_value=st.session_state.guest_count, value=0)
+    vegan      = st.number_input("Weganie",        min_value=0, max_value=st.session_state.guest_count, value=0)
+    gluten_free= st.number_input("Bezglutenowi",   min_value=0, max_value=st.session_state.guest_count, value=0)
     allergy_notes = st.text_area("Pozostałe uwagi", placeholder="alergie, preferencje...")
 
     st.session_state.dietary_notes = {
@@ -479,13 +558,12 @@ with st.sidebar:
 
 # ── HEADER ────────────────────────────────────────────────────────────────────
 couple = st.session_state.couple_name or ""
-st.markdown("<br>", unsafe_allow_html=True)
 
 col_h1, col_h2 = st.columns([2, 1])
 with col_h1:
     if couple:
         st.markdown(
-            f"<p style='font-size:0.72rem; color:#8A9AB0; letter-spacing:0.12em; text-transform:uppercase; margin:0;'>Konfiguracja menu</p>",
+            "<p style='font-size:0.72rem; color:#6A7D96; letter-spacing:0.12em; text-transform:uppercase; margin:0 0 4px;'>Konfiguracja menu</p>",
             unsafe_allow_html=True,
         )
         st.markdown(
@@ -494,11 +572,11 @@ with col_h1:
         )
     else:
         st.markdown(
-            f"<p style='font-size:0.72rem; color:#8A9AB0; letter-spacing:0.12em; text-transform:uppercase; margin:0;'>Konfigurator</p>",
+            "<p style='font-size:0.72rem; color:#6A7D96; letter-spacing:0.12em; text-transform:uppercase; margin:0 0 4px;'>Konfigurator</p>",
             unsafe_allow_html=True,
         )
         st.markdown(
-            f"<h1 style='font-family:DM Serif Display,serif; font-size:2.8rem; color:#1B2A4A; margin:0; line-height:1.1;'>Menu Weselne</h1>",
+            "<h1 style='font-family:DM Serif Display,serif; font-size:2.8rem; color:#1B2A4A; margin:0; line-height:1.1;'>Menu Weselne</h1>",
             unsafe_allow_html=True,
         )
 
@@ -513,7 +591,7 @@ tabs = st.tabs(["Menu", "Asystent Smaku", "Podsumowanie"])
 # ═══════════════════════════════════════════════════════════════════════════════
 with tabs[0]:
 
-    # ── Intro box ─────────────────────────────────────────────────────────────
+    # Intro
     st.markdown("""
     <div class="wedding-intro">
         <p class="intro-title">Skomponuj swoje wesele</p>
@@ -521,61 +599,141 @@ with tabs[0]:
             Tworzymy menu weselne z sercem — korzystamy z produktów lokalnych dostawców
             i sprawdzonych polskich przepisów przekazywanych z pokolenia na pokolenie.
             Wybierz dania z każdej kategorii, a nasz Asystent Smaku podpowie,
-            co do siebie pasuje. Pamiętaj — każde danie możemy dostosować
-            do wymagań dietetycznych Twoich gości.
+            co do siebie pasuje.
         </p>
     </div>
     """, unsafe_allow_html=True)
 
-    for category, items in MENU_DATA.items():
-        st.markdown(f'<div class="cat-card">', unsafe_allow_html=True)
-        st.markdown(f'<p class="cat-title">{category}</p>', unsafe_allow_html=True)
-        st.markdown(f'<p class="cat-desc">{items.get("description", "")}</p>', unsafe_allow_html=True)
+    # Iteruj po grupach posiłków
+    for group_name, group_cats in MEAL_GROUPS.items():
+        is_single_cat = len(group_cats) == 1
 
-        prev = st.session_state.selections.get(category, [])
-        chosen = st.multiselect(
-            f"Wybierz — {category}",
-            options=[d["name"] for d in items["dishes"]],
-            default=prev,
-            key=f"select_{category}",
-            label_visibility="collapsed",
-        )
-        st.session_state.selections[category] = chosen
+        if is_single_cat:
+            # Pojedyncza kategoria — standalone card
+            cat = group_cats[0]
+            items = MENU_DATA.get(cat, {})
+            if not items:
+                continue
 
-        if chosen and chosen != prev:
-            with st.spinner(""):
-                tip = get_ai_suggestion(
-                    f"Para wybrała do kategorii '{category}': {', '.join(chosen)}. "
-                    "Zaproponuj krótko pasujące danie lub dodatek z naszej oferty."
+            st.markdown(
+                f"""<div class="cat-card-standalone">
+                    <p class="cat-title">{cat}</p>
+                    <p class="cat-desc">{items.get('description', '')}</p>
+                </div>""",
+                unsafe_allow_html=True,
+            )
+
+            # multiselect BEZ pustej etykiety
+            prev = st.session_state.selections.get(cat, [])
+            chosen = st.multiselect(
+                label=cat,
+                options=[d["name"] for d in items["dishes"]],
+                default=prev,
+                key=f"select_{cat}",
+                label_visibility="collapsed",
+            )
+            st.session_state.selections[cat] = chosen
+
+            if chosen and chosen != prev:
+                with st.spinner(""):
+                    tip = get_ai_suggestion(
+                        f"Para wybrała do kategorii '{cat}': {', '.join(chosen)}. "
+                        "Zaproponuj krótko pasujące danie lub dodatek z naszej oferty."
+                    )
+                if tip:
+                    st.markdown(f'<div class="ai-bubble">{tip}</div>', unsafe_allow_html=True)
+
+            if chosen:
+                cols = st.columns(min(len(chosen), 3))
+                for idx, dish_name in enumerate(chosen):
+                    dish = next((d for d in items["dishes"] if d["name"] == dish_name), None)
+                    if dish:
+                        with cols[idx % 3]:
+                            allergen_html = "".join(
+                                f'<span class="allergen-tag">{a}</span>'
+                                for a in dish.get("allergens", [])
+                            )
+                            price = dish.get("price_per_person")
+                            total_p = price * st.session_state.guest_count if price else None
+                            st.markdown(
+                                f"""<div class="dish-detail">
+                                    <p class="dish-name">{dish['name']}</p>
+                                    <p class="dish-desc">{dish.get('description','')}</p>
+                                    {"<p class='dish-price'>~" + str(price) + " zł / os. &nbsp;·&nbsp; " + str(total_p) + " zł łącznie</p>" if price else ""}
+                                    <div style="margin-top:4px;">{allergen_html}</div>
+                                </div>""",
+                                unsafe_allow_html=True,
+                            )
+
+        else:
+            # Grupa z kilkoma kategoriami (Obiad I, II, Kolacja)
+            # Nagłówek grupy
+            st.markdown(
+                f"""<div class="meal-group-header">
+                    <p class="meal-group-title">{group_name}</p>
+                    <p class="meal-group-subtitle">Wybierz po jednym daniu z każdej sekcji</p>
+                </div>""",
+                unsafe_allow_html=True,
+            )
+
+            for ci, cat in enumerate(group_cats):
+                items = MENU_DATA.get(cat, {})
+                if not items:
+                    continue
+
+                is_last = (ci == len(group_cats) - 1)
+                card_extra = "cat-card-last" if is_last else ""
+
+                st.markdown(
+                    f"""<div class="cat-card {card_extra}">
+                        <p class="cat-title">{sub_label(cat)}</p>
+                        <p class="cat-desc">{items.get('description', '')}</p>
+                    </div>""",
+                    unsafe_allow_html=True,
                 )
-            if tip:
-                st.markdown(f'<div class="ai-bubble">{tip}</div>', unsafe_allow_html=True)
 
-        if chosen:
-            cols = st.columns(min(len(chosen), 3))
-            for idx, dish_name in enumerate(chosen):
-                dish = next((d for d in items["dishes"] if d["name"] == dish_name), None)
-                if dish:
-                    with cols[idx % 3]:
-                        allergen_html = "".join(
-                            f'<span class="allergen-tag">{a}</span>'
-                            for a in dish.get("allergens", [])
+                prev = st.session_state.selections.get(cat, [])
+                chosen = st.multiselect(
+                    label=cat,
+                    options=[d["name"] for d in items["dishes"]],
+                    default=prev,
+                    key=f"select_{cat}",
+                    label_visibility="collapsed",
+                )
+                st.session_state.selections[cat] = chosen
+
+                if chosen and chosen != prev:
+                    with st.spinner(""):
+                        tip = get_ai_suggestion(
+                            f"Para wybrała do kategorii '{cat}': {', '.join(chosen)}. "
+                            "Zaproponuj krótko pasujące danie lub dodatek z naszej oferty."
                         )
-                        price = dish.get("price_per_person")
-                        total = price * st.session_state.guest_count if price else None
-                        st.markdown(
-                            f"""<div class="dish-detail">
-                                <p class="dish-name">{dish['name']}</p>
-                                <p class="dish-desc">{dish.get('description','')}</p>
-                                {"<p class='dish-price'>~" + str(price) + " zł / os. &nbsp;·&nbsp; " + str(total) + " zł łącznie</p>" if price else ""}
-                                <div style="margin-top:4px;">{allergen_html}</div>
-                            </div>""",
-                            unsafe_allow_html=True,
-                        )
+                    if tip:
+                        st.markdown(f'<div class="ai-bubble">{tip}</div>', unsafe_allow_html=True)
 
-        st.markdown("</div>", unsafe_allow_html=True)
+                if chosen:
+                    cols = st.columns(min(len(chosen), 3))
+                    for idx, dish_name in enumerate(chosen):
+                        dish = next((d for d in items["dishes"] if d["name"] == dish_name), None)
+                        if dish:
+                            with cols[idx % 3]:
+                                allergen_html = "".join(
+                                    f'<span class="allergen-tag">{a}</span>'
+                                    for a in dish.get("allergens", [])
+                                )
+                                price = dish.get("price_per_person")
+                                total_p = price * st.session_state.guest_count if price else None
+                                st.markdown(
+                                    f"""<div class="dish-detail">
+                                        <p class="dish-name">{dish['name']}</p>
+                                        <p class="dish-desc">{dish.get('description','')}</p>
+                                        {"<p class='dish-price'>~" + str(price) + " zł / os. &nbsp;·&nbsp; " + str(total_p) + " zł łącznie</p>" if price else ""}
+                                        <div style="margin-top:4px;">{allergen_html}</div>
+                                    </div>""",
+                                    unsafe_allow_html=True,
+                                )
 
-    # ── Dodatki Premium ────────────────────────────────────────────────────────
+    # ── Dodatki Premium ───────────────────────────────────────────────────────
     st.markdown("<hr>", unsafe_allow_html=True)
     st.markdown('<p class="section-label">Dodatki Premium</p>', unsafe_allow_html=True)
 
@@ -593,7 +751,7 @@ with tabs[0]:
             st.markdown(
                 f"""<div class="upsell-card">
                     <p class="upsell-name">{upsell['name']}</p>
-                    <p class="dish-desc" style="color:#5A6A7A;">{upsell['description']}</p>
+                    <p class="upsell-desc">{upsell['description']}</p>
                     {"<p class='upsell-price'>od " + str(upsell['price']) + " zł</p>" if upsell.get('price') else ""}
                 </div>""",
                 unsafe_allow_html=True,
@@ -603,7 +761,7 @@ with tabs[0]:
 
     st.session_state.selections["_upsells"] = new_upsells
 
-    # ── Przycisk Podsumowania ──────────────────────────────────────────────────
+    # ── Przycisk Podsumowania ─────────────────────────────────────────────────
     total_dishes_now = sum(
         len(v) for k, v in st.session_state.selections.items()
         if isinstance(v, list) and k != "_upsells"
@@ -614,7 +772,7 @@ with tabs[0]:
     if total_dishes_now > 0:
         col_btn1, col_btn2, col_btn3 = st.columns([1, 2, 1])
         with col_btn2:
-            if st.button("📋 Podsumuj wybrane menu", use_container_width=True):
+            if st.button("Podsumuj wybrane menu", use_container_width=True):
                 st.session_state.show_summary_preview = not st.session_state.show_summary_preview
 
         if st.session_state.show_summary_preview:
@@ -634,7 +792,7 @@ with tabs[0]:
                         price_txt = f"{dish_obj['price_per_person']} zł/os." if dish_obj and dish_obj.get("price_per_person") else "—"
                         rows_html += f"""
                         <div class="summary-preview-row">
-                            <span><span style="color:#8A9AB0; font-size:0.72rem;">{cat}</span> &nbsp;·&nbsp; {d}</span>
+                            <span><span style="color:#6A9AB0; font-size:0.72rem;">{cat}</span> &nbsp;·&nbsp; {d}</span>
                             <span style="color:#C4975A;">{price_txt}</span>
                         </div>"""
 
@@ -643,7 +801,7 @@ with tabs[0]:
                 price_txt = f"od {u_obj['price']} zł" if u_obj and u_obj.get("price") else "—"
                 rows_html += f"""
                 <div class="summary-preview-row">
-                    <span><span style="color:#8A9AB0; font-size:0.72rem;">Dodatek</span> &nbsp;·&nbsp; {u_name}</span>
+                    <span><span style="color:#6A9AB0; font-size:0.72rem;">Dodatek</span> &nbsp;·&nbsp; {u_name}</span>
                     <span style="color:#C4975A;">{price_txt}</span>
                 </div>"""
 
@@ -663,7 +821,7 @@ with tabs[0]:
             )
     else:
         st.markdown(
-            "<p style='text-align:center; color:#8A9AB0; font-size:0.82rem; padding:1rem 0;'>Wybierz przynajmniej jedno danie, aby zobaczyć podsumowanie.</p>",
+            "<p style='text-align:center; color:#6A7D96; font-size:0.82rem; padding:1rem 0;'>Wybierz przynajmniej jedno danie, aby zobaczyć podsumowanie.</p>",
             unsafe_allow_html=True,
         )
 
@@ -674,7 +832,7 @@ with tabs[0]:
 with tabs[1]:
     st.markdown('<p class="section-label">Asystent Smaku</p>', unsafe_allow_html=True)
     st.markdown(
-        "<p style='font-size:0.85rem; color:#5A6A7A; margin-bottom:1.5rem;'>Zapytaj o kompozycje smakowe, porcje, alergie lub sugestie dla szczególnych potrzeb gości.</p>",
+        "<p style='font-size:0.85rem; color:#3D4F6A; margin-bottom:1.5rem;'>Zapytaj o kompozycje smakowe, porcje, alergie lub sugestie dla szczególnych potrzeb gości.</p>",
         unsafe_allow_html=True,
     )
 
@@ -684,7 +842,7 @@ with tabs[1]:
 
     st.markdown("<br>", unsafe_allow_html=True)
     st.markdown(
-        '<p style="font-size:0.72rem; color:#8A9AB0; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.5rem;">Sugerowane pytania</p>',
+        '<p style="font-size:0.72rem; color:#6A7D96; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.5rem;">Sugerowane pytania</p>',
         unsafe_allow_html=True,
     )
 
@@ -729,7 +887,7 @@ with tabs[2]:
         UPSELLS,
     )
 
-    # Metrics
+    # Metryki
     m1, m2, m3, m4 = st.columns(4)
     metrics = [
         (str(st.session_state.guest_count), "Gości"),
@@ -748,26 +906,26 @@ with tabs[2]:
                 unsafe_allow_html=True,
             )
 
-    # Estimated cost
+    # Koszt — większa czcionka
     if summary["estimated_cost"] > 0:
         st.markdown(
             f"""<div class="cost-box">
                 <p class="cost-label">Szacunkowy koszt</p>
                 <p class="cost-value">{summary['estimated_cost']:,} zł</p>
-                <p style="font-size:0.72rem; color:#8A9AB0; margin-top:0.5rem;">przy {st.session_state.guest_count} gościach — ceny orientacyjne, bez napojów</p>
+                <p class="cost-note">przy {st.session_state.guest_count} gościach — ceny orientacyjne, bez napojów</p>
             </div>""",
             unsafe_allow_html=True,
         )
 
     st.markdown("<hr>", unsafe_allow_html=True)
 
-    # Breakdown
+    # Rozpisane dania
     if any(dishes for dishes in summary["breakdown"].values()):
         st.markdown('<p class="section-label">Wybrane dania</p>', unsafe_allow_html=True)
         for cat, dishes in summary["breakdown"].items():
             if dishes:
                 st.markdown(
-                    f"<p style='font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:#8A9AB0; margin-bottom:0.25rem;'>{cat}</p>",
+                    f"<p style='font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:#6A7D96; margin-bottom:0.25rem;'>{cat}</p>",
                     unsafe_allow_html=True,
                 )
                 for d in dishes:
@@ -776,12 +934,12 @@ with tabs[2]:
                     )
                     price_info = f" — {dish_obj['price_per_person']} zł/os." if dish_obj and dish_obj.get("price_per_person") else ""
                     st.markdown(
-                        f"<p style='font-size:0.85rem; color:#1B2A4A; margin:0.1rem 0; padding-left:1rem;'>{d}{price_info}</p>",
+                        f"<p style='font-size:0.9rem; color:#1B2A4A; margin:0.15rem 0; padding-left:1rem;'>{d}{price_info}</p>",
                         unsafe_allow_html=True,
                     )
                 st.markdown("<br>", unsafe_allow_html=True)
 
-    # Dietary
+    # Diety
     st.markdown("<hr>", unsafe_allow_html=True)
     st.markdown('<p class="section-label">Diety specjalne</p>', unsafe_allow_html=True)
     diet_df = pd.DataFrame([
@@ -793,7 +951,7 @@ with tabs[2]:
 
     if st.session_state.dietary_notes.get("other"):
         st.markdown(
-            f"<p style='font-size:0.82rem; color:#5A6A7A; font-style:italic;'>Uwagi: {st.session_state.dietary_notes['other']}</p>",
+            f"<p style='font-size:0.82rem; color:#3D4F6A; font-style:italic;'>Uwagi: {st.session_state.dietary_notes['other']}</p>",
             unsafe_allow_html=True,
         )
 
@@ -806,11 +964,11 @@ with tabs[2]:
             upsell_obj = next((x for x in UPSELLS if x["name"] == u), None)
             price_info = f" — od {upsell_obj['price']} zł" if upsell_obj and upsell_obj.get("price") else ""
             st.markdown(
-                f"<p style='font-size:0.85rem; color:#1B2A4A;'>{u}{price_info}</p>",
+                f"<p style='font-size:0.9rem; color:#1B2A4A;'>{u}{price_info}</p>",
                 unsafe_allow_html=True,
             )
 
-    # Export
+    # Eksport
     st.markdown("<hr>", unsafe_allow_html=True)
     st.markdown('<p class="section-label">Eksport</p>', unsafe_allow_html=True)
     col_exp1, col_exp2 = st.columns(2)
