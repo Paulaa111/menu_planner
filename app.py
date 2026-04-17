@@ -26,7 +26,7 @@ st.markdown("""
 html, body, [class*="css"] { font-family:'DM Sans',sans-serif; font-weight:300; color:#1B2A4A; }
 h1,h2,h3 { font-family:'DM Serif Display',serif !important; font-weight:400 !important; color:#1B2A4A !important; }
 .stApp { background:#FAF7F2; }
-.block-container { padding-top:2rem !important; }
+.block-container { padding-top:0rem !important; }
 
 /* ─ Sidebar ──────────────────────────────────────────────────────────────── */
 [data-testid="stSidebar"] { background:#1B2A4A !important; }
