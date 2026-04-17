@@ -129,7 +129,7 @@ hr { border-color:#DDD5C8 !important; margin:1.5rem 0 !important; }
 .tagline       { font-family:'DM Serif Display',serif; font-style:italic; font-size:1.05rem; color:#C4975A !important; margin-top:.4rem; }
 .stCheckbox label, .stCheckbox span { color:#1B2A4A !important; font-size:.88rem !important; }
 [data-testid="stDataFrame"] { border-radius:10px !important; overflow:hidden; }
-#MainMenu{visibility:hidden;} footer{visibility:hidden;} header{visibility:hidden;}
+#MainMenu{visibility:hidden;} footer{visibility:hidden;} 
 </style>
 """, unsafe_allow_html=True)
 
